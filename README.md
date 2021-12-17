@@ -19,9 +19,16 @@ magazinUrls= ( \
 ```
 
 ## Run ##
+### One-time execution ###
+`./onleihe-monitor.sh`
+
+### Actual monitoring ### 
 Set up cron job as desired. Be sure to change into the script directory.
+```
+*/5 * *    *   *    ( cd ~/onleihe && ./onleihe-monitor.sh )
+```
 
 ## Requirements/Dependencies ##
--your personal telegram bot
--Bash
--xsltproc
+- your personal telegram bot
+- Bash
+- xsltproc
