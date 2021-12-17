@@ -6,8 +6,8 @@ Bash/XSLT scripts for monitoring onleihe.de for new editions of magazines and no
 change `botId`
 
 ### `repo-config.cfg`
--change `BASE_URL` of your desired onleihe
--add "versionInfoList" resources of your desired magazines (under `magazinUrls`)
+- change `BASE_URL` of your desired onleihe
+- add "versionInfoList" resources of your desired magazines (under `magazinUrls`)
 
 Thus https://www.onleihe.de/chemnitz/frontend/versionInfoList,0-0-0-109-0-0-0-2008-400005-400750250-0.html
 would become:
