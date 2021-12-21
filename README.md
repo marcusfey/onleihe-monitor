@@ -1,5 +1,5 @@
 # onleihe-monitor
-Bash/XSLT scripts for monitoring onleihe.de for new editions of magazines and notification via telegram
+Bash/XSLT scripts for monitoring [onleihe.de](https://www.onleihe.de) for new editions of configured magazines and notification via telegram
 
 ## Configuration
 ### `telegram-config.cfg`
