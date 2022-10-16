@@ -10,7 +10,13 @@ rm -f curr_media_urls.txt
 # query links
 for url in ${magazinUrls[*]}
 do
-    curl --silent -o - $BASE_URL/$url | xsltproc --html  extractlinks.xsl - 2> /dev/null 1>> curr_media_urls.txt
+    echo $url
+    baseUrl=$(echo $url | sed -e 's#[^/]*$##')
+    curl --silent -o - $url | xsltproc --html  extractlinks.xsl - 2> /dev/null   1> curr_media_urls.txt.tmp
+    while IFS= read -r line
+    do
+        echo $baseUrl$line>>curr_media_urls.txt
+    done < curr_media_urls.txt.tmp
 done
 
 # sort all current URLs
@@ -24,11 +30,10 @@ rm curr_media_urls.txt curr_media_urls_sorted.txt
 # read new URLs
 while IFS= read -r line
 do
-    fullUrl=$BASE_URL$line
     curl --silent \
               --data-urlencode "chat_id=296922305" \
               --data-urlencode "disable_web_page_preview=true" \
-                    --data-urlencode "text=$fullUrl " \
+                    --data-urlencode "text=$line " \
               "https://api.telegram.org/$botId/sendMessage"
 done < curr_diff.txt
 

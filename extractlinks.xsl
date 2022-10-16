@@ -22,6 +22,11 @@
         <xsl:text>
 </xsl:text>
     </xsl:template>
+    <xsl:template match="//a[contains(@class, 'stretched-link')]">
+        <xsl:value-of select="@href"/><xsl:text> </xsl:text><xsl:value-of select="substring(@title, 11)"/>
+        <xsl:text>
+</xsl:text>
+    </xsl:template>
 
     <xsl:template match="text()"/> <!-- remove all text -->
 </xsl:stylesheet>
